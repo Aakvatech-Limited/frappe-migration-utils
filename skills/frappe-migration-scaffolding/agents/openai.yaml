@@ -1,0 +1,3 @@
+interface:
+  display_name: "Frappe Migration Scaffolding"
+  short_description: "Set up safe one-time JSON migration patches in Frappe apps"
