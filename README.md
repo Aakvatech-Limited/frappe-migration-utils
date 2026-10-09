@@ -66,3 +66,9 @@ migration for records with generated names, renames, Singles, or child tables.
   schema health checks and safe native schema repair are follow-up work.
 - Initial CI is Python-only; MariaDB-backed Frappe v15/v16 integration tests
   are required before recommending production adoption or publishing a release.
+
+## Guidance for AI coding agents
+
+Read [AGENTS.md](AGENTS.md) before modifying this package or integrating it with a Frappe app. Detailed API usage and caveats are in [docs/AGENT_USAGE.md](docs/AGENT_USAGE.md); new-app layout is in [docs/APP_SCAFFOLDING.md](docs/APP_SCAFFOLDING.md).
+
+A reusable, standalone agent skill and safe patch scaffold generator are included under [skills/frappe-migration-scaffolding](skills/frappe-migration-scaffolding). The generator creates candidate JSON and patch files but deliberately does not edit `patches.txt` or `pyproject.toml` automatically.
