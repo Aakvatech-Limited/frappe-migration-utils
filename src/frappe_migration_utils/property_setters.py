@@ -1,8 +1,5 @@
 """Initialize missing Property Setters using native Frappe APIs."""
 
-import frappe
-from frappe.custom.doctype.property_setter.property_setter import make_property_setter
-
 from .common import ImportResult, require_doctype, validate_optional
 from .exceptions import MigrationError
 from .json_loader import load_records
@@ -15,6 +12,9 @@ def import_property_setters(
     optional_doctypes=None,
 ) -> ImportResult:
     """Only create absent setters; existing site-specific values stay untouched."""
+    import frappe
+    from frappe.custom.doctype.property_setter.property_setter import make_property_setter
+
     optional = validate_optional(optional_doctypes)
     result = ImportResult()
     for entry in load_records(source, file):
