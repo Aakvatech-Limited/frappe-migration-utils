@@ -1,8 +1,5 @@
 """Custom Field initialization with native Frappe creation and safe retries."""
 
-import frappe
-from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
-
 from .common import ImportResult, require_doctype, validate_optional
 from .exceptions import MigrationError
 from .json_loader import load_records
@@ -41,6 +38,9 @@ def import_custom_fields(
     A missing physical column on an existing field is an error, not authority
     to overwrite or silently rebuild an unknown site's schema.
     """
+    import frappe
+    from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
+
     optional = validate_optional(optional_doctypes)
     result = ImportResult()
     grouped = {}
