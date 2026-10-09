@@ -1,7 +1,5 @@
 """Generic Frappe DocType initialization. Existing records are site-owned."""
 
-import frappe
-
 from .common import ImportResult, require_doctype, validate_optional
 from .exceptions import MigrationError
 from .json_loader import load_records
@@ -19,6 +17,8 @@ def import_doctype_records(
     Names must be explicit for normal DocTypes. Generated naming/renames need
     an app-specific patch because a stable identity cannot be inferred.
     """
+    import frappe
+
     result = ImportResult()
     optional = validate_optional(optional_doctypes)
     if not require_doctype(frappe, doctype, optional):
